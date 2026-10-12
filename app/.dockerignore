@@ -1,0 +1,9 @@
+node_modules
+dist/.vite
+.shots
+source-models
+dev-server.log
+dev-server.err.log
+serve.log
+serve.err.log
+.docx-build

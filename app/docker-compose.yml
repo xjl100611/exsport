@@ -1,0 +1,21 @@
+services:
+  exsport:
+    build: .
+    image: exsport-web:latest
+    container_name: exsport-web
+    # 宿主 5173 -> 容器 80，保持你现在用的网址不变
+    ports:
+      - '5173:80'
+    restart: unless-stopped
+
+  # 域名入口：对外监听 80，按域名转发到站点容器
+  proxy:
+    image: nginx:alpine
+    container_name: exsport-proxy
+    volumes:
+      - ./proxy.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - '80:80'
+    depends_on:
+      - exsport
+    restart: unless-stopped

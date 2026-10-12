@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="exsport — 哪里痛，练什么。点击 3D 人体上的痛点，看到常见成因与有助于恢复的运动。"
+    />
+    <title>exsport · 哪里痛，练什么</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <!-- Dify 聊天机器人。token 与 baseUrl 从环境变量注入（见 .env.example），
+         这样公开仓库里不会带上自己的机器人凭证与本机地址。
+         baseUrl 必须带上 Dify 实际监听的端口，写成 http://www.localhost 会解析失败。 -->
+    <script>
+      window.difyChatbotConfig = {
+        token: '%VITE_DIFY_TOKEN%',
+        baseUrl: '%VITE_DIFY_BASE_URL%',
+        inputs: {},
+        systemVariables: {},
+        userVariables: {},
+      }
+    </script>
+    <script src="%VITE_DIFY_BASE_URL%/embed.min.js" id="dify-chatbot-embed" defer></script>
+    <style>
+      #dify-chatbot-bubble-button {
+        background-color: #1c64f2 !important;
+      }
+      #dify-chatbot-bubble-window {
+        width: 24rem !important;
+        height: 40rem !important;
+      }
+    </style>
+  </body>
+</html>

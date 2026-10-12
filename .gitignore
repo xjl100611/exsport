@@ -1,0 +1,22 @@
+# 依赖与构建产物
+node_modules/
+dist/
+
+# 数据库备份：含账号与密钥，绝对不能提交
+backups/
+
+# 未压缩的源模型（约 35MB，可用 README 中的地址重新获取）
+app/source-models/
+
+# 自检截图、构建中间产物与运行日志
+app/.shots/
+app/.docx-build/
+app/.docx-build-injuries/
+*.log
+serve-loop.log
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
